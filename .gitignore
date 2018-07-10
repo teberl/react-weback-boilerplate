@@ -1,0 +1,10 @@
+node_modules/
+npm-debug.log*
+dist/
+test-report.*
+public/
+coverage/
+.vscode/
+.idea/
+src/wireframe.*
+.DS_Store

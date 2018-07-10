@@ -1,0 +1,10 @@
+.git*
+node_modules/*
+dist/*
+src/wireframe.*
+.dockerignore
+.editorconfig
+Dockerfile
+README.md
+*.html
+test*

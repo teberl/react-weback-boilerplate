@@ -1,0 +1,20 @@
+{
+  "plugins": [ "react" ],
+  "extends": ["airbnb", "plugin:react/recommended"],
+  "env": {
+    "jest": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalDecorators": true
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/jsx-closing-bracket-location": [1, "after-props"],
+    "react/react-in-jsx-scope": 2,
+    "promise/avoid-new": 0
+  }
+}
