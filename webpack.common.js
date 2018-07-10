@@ -7,8 +7,7 @@ const copyFiles = new CopyWebpackPlugin([
 
 module.exports = {
   entry: [
-    './src/client/index.js',
-    'tachyons/css/tachyons.css'
+    './src/client/index.js'
   ],
   output: {
     path: path.resolve(__dirname, 'dist')
@@ -22,20 +21,9 @@ module.exports = {
             loader: require.resolve('url-loader')
           },
           {
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             loader: require.resolve('babel-loader')
-          },
-          {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-          },
-          {
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
-            loader: require.resolve('file-loader'),
-            options: {
-              name: '[name].[ext]'
-            }
           }
         ]
       }

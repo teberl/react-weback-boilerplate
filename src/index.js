@@ -28,7 +28,7 @@ app.get(
 )
 
 app.get(
-  urls.home,
+  urls.root,
   handleDefault
 );
 

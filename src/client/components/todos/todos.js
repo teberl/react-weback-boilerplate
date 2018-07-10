@@ -15,7 +15,7 @@ export default function TodoList(props) {
 }
 
 function TodoListItem({ todo }) {
-  return ((<li>{ todo.text }</li>))
+  return ((<li className='f4 pa3'>{ todo.text }</li>))
 }
 
 TodoList.prototype = {

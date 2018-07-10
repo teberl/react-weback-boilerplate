@@ -4,7 +4,8 @@ import { Route, Switch } from 'react-router';
 
 import { urls } from '../../routes/urls';
 import { TodoContext, addTodo } from '../todo-context';
-import TodoList from './todos/todo-list';
+import Headline from './headline';
+import TodoList from './todos/todos';
 
 
 class App extends React.Component {
@@ -29,10 +30,10 @@ class App extends React.Component {
   render() {
     const routes = [
       {
-        path: urls.home,
-        render: () => ("Hello World !!!")
+        path: urls.root,
+        render: () => (<Headline />)
       }, {
-        path: urls.todoById,
+        path: urls.todos,
         render: props => (<TodoContext.Provider
           value={{ todos: this.state.todos, addTodo: this.handleAddTodo }}>
           <TodoList

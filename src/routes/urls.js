@@ -1,5 +1,5 @@
 export const urls = {
-  home: '/',
+  root: '/',
   todos: '/todos',
   todoById: '/todos/:id'
 };

@@ -1,11 +1,16 @@
 import render from './render';
 
-const todo = {
+const todos = [{
   id: 1,
   createdOn: (new Date()).toISOString(),
-  text: 'Buy some candy!'
-};
-const initialServerState = { todos: [todo] }
+  text: 'Use flow'
+}, {
+  id: 2,
+  createdOn: (new Date()).toISOString(),
+  text: 'Improve webpack config'
+}];
+
+const initialServerState = { todos }
 
 function handleDefault(req, res) {
 
@@ -17,15 +22,11 @@ function handleTodoById(req, res) {
     return res.status(400).send('\'id\' is required');
   }
 
-  if (initialServerState.todos && !initialServerState.todos.some(todo => todo.id.toString() === req.params.id)) {
-    return res.status(404).send();
-  }
-
-  return render(req, res, initialServerState);
+  return res.status(501).send();
 }
 
 function handleTodos(req, res) {
-  return res.status(501).send();
+  return render(req, res, initialServerState);
 }
 
 export { handleDefault, handleTodoById, handleTodos };

@@ -14,12 +14,8 @@ module.exports = (env) => merge(common, {
   module: {
     rules: [
       {
-        oneOf: [
-          {
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
-          }
-        ]
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -55,8 +51,7 @@ module.exports = (env) => merge(common, {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: '[name].css'
     })
   ]
 });
