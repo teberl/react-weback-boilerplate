@@ -3,17 +3,20 @@ import render from './render';
 const todos = [{
   id: 1,
   createdOn: (new Date()).toISOString(),
-  text: 'Use flow'
+  text: 'Use flow',
 }, {
   id: 2,
   createdOn: (new Date()).toISOString(),
-  text: 'Improve webpack config'
+  text: 'Improve webpack config',
+}, {
+  id: 3,
+  createdOn: (new Date()).toISOString(),
+  text: 'Use proper bundles and chunks',
 }];
 
-const initialServerState = { todos }
+const initialServerState = { todos };
 
 function handleDefault(req, res) {
-
   return render(req, res, initialServerState);
 }
 

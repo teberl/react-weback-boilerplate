@@ -1,0 +1,6 @@
+/* Global importat css goes here */
+@import "../../../node_modules/tachyons/css/tachyons.css";
+
+.customCss {
+  border: 1px solid deeppink;
+}

@@ -6,5 +6,4 @@ public/
 coverage/
 .vscode/
 .idea/
-src/wireframe.*
 .DS_Store

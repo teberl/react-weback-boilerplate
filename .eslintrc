@@ -6,15 +6,23 @@
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true,
-      "experimentalDecorators": true
+      "jsx": true
     }
   },
   "rules": {
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/jsx-closing-bracket-location": [1, "after-props"],
     "react/react-in-jsx-scope": 2,
     "promise/avoid-new": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
   }
 }

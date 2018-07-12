@@ -5,10 +5,19 @@
       "targets": {
         "browsers": "> 1% in de",
         "node": 8
-      },
-      "useBuiltIns": true,
-      "loose": true
-      }],
-      "react"
-    ]
+      }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    ["inline-import-data-uri", {
+      "extensions": [
+        ".png",
+        ".svg",
+        ".jpg",
+        ".gif"
+      ]
+    }]
+  ]
 }

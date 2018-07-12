@@ -1,57 +1,43 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const common = require('./webpack.common.js');
 
-module.exports = (env) => merge(common, {
+
+// simply awesome guide https://developers.google.com/web/fundamentals/performance/webpack/decrease-frontend-size
+module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
-  output: {
-    filename: `bundle.${env}.js`
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
-    ]
-  },
   optimization: {
+    nodeEnv: 'production',
+    minimize: true,
+    concatenateModules: true,
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
           output: {
             ecma: 5,
-            comments: false
-          }
+            comments: false,
+          },
         },
         // Use multi-process parallel running to improve the build speed
         // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
         // Enable file caching
         cache: true,
-        sourceMap: true
+        sourceMap: true,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
           safe: true,
           discardComments: {
-            removeAll: true
-          }
-        }
-      })
-    ]
+            removeAll: true,
+          },
+        },
+      }),
+    ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.ENV': JSON.stringify(env),
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-  ]
 });
