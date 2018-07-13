@@ -10,46 +10,48 @@ import settings from './settings';
 
 const app = express();
 
-app.use(cookieParser());
-
-app.use(express.static(path.join(__dirname, '../dist')));
-
-app.engine('hbs', handlebars({ extname: '.hbs' }));
-
-app.set('view engine', 'hbs');
-
-app.set('views', path.join(__dirname, 'views'));
-
-app.get(
-  'healthcheck/',
-  (req, res) => res.status(200),
-);
-
-app.get(
-  urls.root,
-  handleDefault,
-);
-
-app.get(
-  urls.todos,
-  handleTodos,
-);
-
-app.get(
-  urls.todoById,
-  handleTodoById,
-);
-
 const server = app.listen(settings.port, hostname(), (error) => {
   if (error) {
     console.error(error);
   } else {
+    app.use(cookieParser());
+
+    app.use(express.static(path.join(__dirname, '../dist')));
+
+    app.engine('hbs', handlebars({ extname: '.hbs' }));
+
+    app.set('view engine', 'hbs');
+
+    app.set('views', path.join(__dirname, 'views'));
+
     if (settings.devMode) {
       const config = require('../webpack.dev.js');
       const compiler = require('webpack')(config);
       require('webpack-hot-client')(compiler, { server });
       app.use(require('webpack-dev-middleware')(compiler, { serverSideRender: true }));
     }
+
+
+    app.get(
+      urls.root,
+      handleDefault,
+    );
+
+    app.get(
+      urls.todos,
+      handleTodos,
+    );
+
+    app.get(
+      urls.todoById,
+      handleTodoById,
+    );
+
+    app.get(
+      'healthcheck/',
+      (req, res) => res.status(200),
+    );
+
     console.info(`Service listening on port ${settings.port}...`);
   }
 });

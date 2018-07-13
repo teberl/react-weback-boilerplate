@@ -1,6 +1,6 @@
-const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -10,10 +10,7 @@ const copyFiles = new CopyWebpackPlugin([
 
 module.exports = {
   entry: {
-    bundle: ['./src/client/index.jsx'],
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
+    main: ['./src/client/index.jsx'],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -76,8 +73,9 @@ module.exports = {
   plugins: [
     copyFiles,
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
+    new ManifestPlugin(),
   ],
 };
