@@ -1,23 +1,27 @@
 {
   "presets": [
     [
-      "env", {
-      "targets": {
-        "browsers": "> 1% in de",
-        "node": 8
-      }
+      "env",
+      {
+        "targets": {
+          "browsers": "> 1% in de",
+          "node": 8
+        }
       }
     ],
     "react"
   ],
   "plugins": [
-    ["inline-import-data-uri", {
-      "extensions": [
-        ".png",
-        ".svg",
-        ".jpg",
-        ".gif"
-      ]
-    }]
+    [
+      "inline-import-data-uri",
+      {
+        "extensions": [
+          ".png",
+          ".svg",
+          ".jpg",
+          ".gif"
+        ]
+      }
+    ]
   ]
 }

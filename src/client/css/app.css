@@ -1,6 +1,23 @@
 /* Global importat css goes here */
 @import "../../../node_modules/tachyons/css/tachyons.css";
 
-.customCss {
-  border: 1px solid deeppink;
+/* css3 variables */
+:root {
+  --shiny-yellow: #FFFF00;
+}
+
+.shiny-yellow {
+  color: var(--shiny-yellow);
+}
+
+
+/* css3 animation */
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

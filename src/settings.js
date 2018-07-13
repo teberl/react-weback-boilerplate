@@ -1,13 +1,13 @@
 const settings = {
   name: 'reactBoilerplate',
   version: 'v1.0.0',
-  env: process.env.ENV || 'development',
+  env: process.env.NODE_ENV || 'development',
   port: process.env.PORT || 3000,
   shutdownTimeout: process.env.SHUTDOWN_TIMEOUT || 10000,
 };
 
 switch (settings.env) {
-  case 'prod':
+  case 'production':
     settings.logLevel = 'info';
     break;
   default:

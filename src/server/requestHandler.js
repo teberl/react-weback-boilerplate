@@ -1,15 +1,15 @@
 import render from './render';
 
 const todos = [{
-  id: 1,
+  id: '1',
   createdOn: (new Date()).toISOString(),
   text: 'Use flow',
 }, {
-  id: 2,
+  id: '2',
   createdOn: (new Date()).toISOString(),
   text: 'Improve webpack config',
 }, {
-  id: 3,
+  id: '3',
   createdOn: (new Date()).toISOString(),
   text: 'Use proper bundles and chunks',
 }];
